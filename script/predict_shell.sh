@@ -1,0 +1,21 @@
+llamafactory-cli train \
+    --stage sft \
+    --model_name_or_path /home/cti/project/python/model/deepseek-ai/deepseek-coder-1___3b-base \
+    --preprocessing_num_workers 16 \
+    --finetuning_type lora \
+    --quantization_method bnb \
+    --template empty \
+    --flash_attn auto \
+    --dataset_dir data \
+    --eval_dataset java_fim_eval \
+    --cutoff_len 1024 \
+    --max_samples 100000 \
+    --per_device_eval_batch_size 8 \
+    --predict_with_generate True \
+    --max_new_tokens 256 \
+    --top_p 1 \
+    --temperature 0.1 \
+    --output_dir saves/DeepSeek-Coder-1.3B-Base/lora/eval \
+    --trust_remote_code True \
+    --do_predict True \
+    --adapter_name_or_path saves/DeepSeek-Coder-1.3B-Base/lora/train
